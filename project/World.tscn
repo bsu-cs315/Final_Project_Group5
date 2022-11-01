@@ -1,8 +1,45 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Barrier.tscn" type="PackedScene" id=2]
 
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 508, 267 )
+position = Vector2( 633, 297 )
+
+[node name="Barrier" parent="." instance=ExtResource( 2 )]
+position = Vector2( 366, 271 )
+scale = Vector2( 6, 100 )
+
+[node name="Barrier2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 413, 318 )
+scale = Vector2( 100, 6 )
+
+[node name="Barrier3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 460, 271 )
+scale = Vector2( 6, 100 )
+
+[node name="Barrier4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 413, 224 )
+scale = Vector2( 100, 6 )
+
+[node name="Barrier6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 583, 272 )
+scale = Vector2( 6, 100 )
+
+[node name="Barrier5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 630, 225 )
+scale = Vector2( 100, 6 )
+
+[node name="Barrier7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 630, 319 )
+scale = Vector2( 100, 6 )
+
+[node name="Barrier8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 677, 272 )
+scale = Vector2( 6, 100 )
+
+[node name="Barrier9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 649, 265 )
+scale = Vector2( 50, 6 )

@@ -3,7 +3,7 @@ extends KinematicBody2D
 var _velocity : Vector2 = Vector2.ZERO
 var _speed : int = 150
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var input := Vector2.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
 	input.y = Input.get_axis("move_up", "move_down")
