@@ -6,40 +6,40 @@
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 633, 297 )
+position = Vector2( 445, 282 )
 
 [node name="Barrier" parent="." instance=ExtResource( 2 )]
-position = Vector2( 366, 271 )
+position = Vector2( 178, 256 )
 scale = Vector2( 6, 100 )
 
 [node name="Barrier2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 413, 318 )
+position = Vector2( 225, 303 )
 scale = Vector2( 100, 6 )
 
 [node name="Barrier3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 460, 271 )
+position = Vector2( 272, 256 )
 scale = Vector2( 6, 100 )
 
 [node name="Barrier4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 413, 224 )
+position = Vector2( 225, 209 )
 scale = Vector2( 100, 6 )
 
 [node name="Barrier6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 583, 272 )
+position = Vector2( 395, 257 )
 scale = Vector2( 6, 100 )
 
 [node name="Barrier5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 630, 225 )
+position = Vector2( 442, 210 )
 scale = Vector2( 100, 6 )
 
 [node name="Barrier7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 630, 319 )
+position = Vector2( 442, 304 )
 scale = Vector2( 100, 6 )
 
 [node name="Barrier8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 677, 272 )
+position = Vector2( 489, 257 )
 scale = Vector2( 6, 100 )
 
 [node name="Barrier9" parent="." instance=ExtResource( 2 )]
-position = Vector2( 649, 265 )
+position = Vector2( 461, 250 )
 scale = Vector2( 50, 6 )
