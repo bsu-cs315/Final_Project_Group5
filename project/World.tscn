@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Barrier.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AreaBullet.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 
@@ -11,6 +12,8 @@ position = Vector2( 440, 273 )
 
 [node name="Bullet" parent="." instance=ExtResource( 3 )]
 position = Vector2( 367, 287 )
+rotation = 0.785398
+scale = Vector2( 8, 8 )
 
 [node name="Enviroment" type="Node2D" parent="."]
 
@@ -65,3 +68,6 @@ scale = Vector2( 100, 6 )
 [node name="Barrier" parent="Enviroment" instance=ExtResource( 2 )]
 position = Vector2( 164, 256 )
 scale = Vector2( 6, 100 )
+
+[node name="AreaBullet" parent="." instance=ExtResource( 4 )]
+position = Vector2( 280, 280 )

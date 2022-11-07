@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 var _velocity : Vector2 = Vector2.ZERO
 var _speed : int = 150
-var hit := false
-
+var hit : bool = false
+var health : int = 20
 
 func _physics_process(_delta):
 	var input := Vector2.ZERO
@@ -22,3 +22,9 @@ func _physics_process(_delta):
 			print("1")
 		if collision.collider.is_in_group("Wall"):
 			_speed = 100
+
+
+func _on_Area2D_area_entered(area):  # new method of doing bullet collision: make bullets area2D and have the player's area2D node send a signal to the player when it collides with the bullets area2D node. In other words, the player is responsible for bullet collision, not the bullet itself.
+	print("Collided with area2D node: '" + str(area) + "'!")
+	health = health - 1
+	print("Player HP: " + str(health))
