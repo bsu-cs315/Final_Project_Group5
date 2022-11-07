@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprites/blue_pixel.png" type="Texture" id=1]
+[ext_resource path="res://AreaBullet.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 4 )
 
-[node name="AreaBullet" type="Area2D"]
+[node name="AreaBullet" type="Area2D" groups=["Bullets"]]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 8, 8 )
