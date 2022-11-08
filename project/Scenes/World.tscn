@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Grass.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/World.gd" type="Script" id=3]
 [ext_resource path="res://AreaBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Barrier.tscn" type="PackedScene" id=5]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Grass" type="Sprite" parent="."]
 position = Vector2( 341, 306 )
@@ -108,3 +111,14 @@ position = Vector2( -368, 225 )
 
 [node name="AreaBullet13" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -348, 205 )
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="TimeLeft" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[node name="TimeCounter" type="Timer" parent="."]
+
+[connection signal="timeout" from="TimeLeft" to="." method="_on_TimeLeft_timeout"]
+[connection signal="timeout" from="TimeCounter" to="." method="_on_TimeCounter_timeout"]

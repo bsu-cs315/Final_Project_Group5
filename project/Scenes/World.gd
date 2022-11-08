@@ -1,13 +1,20 @@
 extends Node2D
 
-onready var bullet := get_node("Bullet")
-
+var timeCount := 0
+onready var playerHealth = get_child(1).health
 func _ready():
-	$startWave.start()
-func _physics_process(_delta):
-	$Bullet.target = $Player.position
+	$TimeLeft.start()
+	$TimeCounter.start()
+func _process(_delta):
+	if($TimeLeft.time_left >= 0):
+		$HUD/Label.text = "Time Left: " + str(int($TimeLeft.time_left)) + "\nScore: " + str(timeCount)
+
+func _on_TimeLeft_timeout():
+	timeCount = timeCount + (100 * playerHealth)
+	#win Screen or next Scene
+	pass
 
 
-func _on_startWave_timeout():
-	add_child(bullet)
-	bullet.position.x = rand_range(0, 600)
+func _on_TimeCounter_timeout():
+	timeCount += 10
+	pass # Replace with function body.

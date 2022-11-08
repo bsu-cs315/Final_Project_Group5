@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="."]
+margin_top = 28.0
+margin_right = 681.0
+margin_bottom = 99.0
+text = "Time Left : 
+Score :"
+align = 1
