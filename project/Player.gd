@@ -3,7 +3,7 @@ extends KinematicBody2D
 var _velocity : Vector2 = Vector2.ZERO
 var _speed : int = 150
 var hit : bool = false
-var health : int = 20
+var health : int = 3
 
 func _physics_process(_delta):
 	var input := Vector2.ZERO
