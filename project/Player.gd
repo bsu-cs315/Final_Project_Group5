@@ -14,6 +14,8 @@ func _physics_process(_delta):
 	
 	_velocity = move_and_slide(_velocity, Vector2.UP)
 	
+	rotatePlayer(input)
+		
 	
 	for i in get_slide_count():  # I propose we deprecate this method of bullet collision in favor of the one below using signals.
 		var collision := get_slide_collision(i)
@@ -30,5 +32,18 @@ func _on_Area2D_area_entered(area):  # new method of doing bullet collision: mak
 		print("The Area2D I just collided with was in the 'Bullets' group!")
 		health = health - 1
 		print("Player HP: " + str(health))
+		if(health == 0):
+			get_tree().change_scene("res://Scenes/ReAwakening.tscn")
 	else:
 		print("The Area2D I just collided with was NOT in the 'Bullets' group, so I wont subtract health!")
+
+
+func rotatePlayer(input : Vector2):
+	if(input.x < 0 and Input.get_axis("move_left","move_right")):
+		rotation_degrees = -90
+	if(input.x > 0 and Input.get_axis("move_left","move_right")):
+		rotation_degrees = 90
+	if(input.y < 0 and Input.get_axis("move_down","move_up")):
+		rotation_degrees = 0
+	if(input.y > 0 and Input.get_axis("move_down", "move_up")):
+		rotation_degrees = 180

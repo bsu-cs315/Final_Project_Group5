@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AreaBullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Barrier.tscn" type="PackedScene" id=5]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 440, 273 )
+scale = Vector2( 0.8, 0.8 )
+
+[node name="Bullet" parent="." instance=ExtResource( 3 )]
+position = Vector2( -91, 236 )
+rotation = 0.785398
+scale = Vector2( 8, 8 )
+
+[node name="Enviroment" type="Node2D" parent="."]
+position = Vector2( -52, -37 )
+
+[node name="Barrier2" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 493, 219 )
+scale = Vector2( 120, 6 )
+
+[node name="Barrier9" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 273, 219 )
+scale = Vector2( 91, 6 )
+
+[node name="Barrier7" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 507, 462 )
+scale = Vector2( 100, 6 )
+
+[node name="Barrier5" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 564, 255 )
+rotation = 1.5708
+scale = Vector2( 80, 6 )
+
+[node name="Barrier4" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 376, 219 )
+scale = Vector2( 100, 6 )
+
+[node name="Barrier6" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 564, 426 )
+rotation = 1.5708
+scale = Vector2( 80, 6 )
+
+[node name="Barrier8" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 564, 340 )
+rotation = 1.5708
+scale = Vector2( 80, 6 )
+
+[node name="Barrier10" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 290, 462 )
+scale = Vector2( 102, 6 )
+
+[node name="Barrier11" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 399, 462 )
+scale = Vector2( 100, 6 )
+
+[node name="Barrier12" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 229, 255 )
+rotation = 1.5708
+scale = Vector2( 80, 6 )
+
+[node name="Barrier13" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 229, 340 )
+rotation = 1.5708
+scale = Vector2( 80, 6 )
+
+[node name="Barrier14" parent="Enviroment" instance=ExtResource( 5 )]
+position = Vector2( 229, 426 )
+rotation = 1.5708
+scale = Vector2( 80, 6 )
+
+[node name="AreaBullet" parent="." instance=ExtResource( 4 )]
+position = Vector2( 66, 203 )
+
+[node name="AreaBullet2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 38, 274 )
+
+[node name="AreaBullet3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 91, 358 )
