@@ -18,7 +18,7 @@ func _process(_delta):
 	if(position.x >= 674 or position.x <= 16):
 		_velocity.x = _velocity.x * -1
 		
-	if((position.x > 340 and position.x < 360) and Input.is_action_just_pressed("ReAwaken")):
+	if((position.x > 340 and position.x < 360) and Input.is_action_just_pressed("reAwaken")):
 		_velocity.x = 0
 		visible = false
 		check = 1

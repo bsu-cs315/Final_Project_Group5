@@ -1,20 +1,25 @@
 extends Node2D
 
 var timeCount := 0
-onready var playerHealth = get_child(1).health
+onready var player = get_child(1)
+
 func _ready():
+	randomize()
 	$TimeLeft.start()
 	$TimeCounter.start()
 func _process(_delta):
+	position.x = get_viewport_rect().size.x/6
 	if($TimeLeft.time_left >= 0):
-		$HUD/Label.text = "Time Left: " + str(int($TimeLeft.time_left)) + "\nScore: " + str(timeCount)
-
+		$HUD/Label.text = "Time Left: " + str(int($TimeLeft.time_left)) + "\nScore: " + str(timeCount) + "\n Health : " + str(player.health) 
+		
+		if($HUD/Button.pressed):
+			$Wave1.pause_mode = true
 func _on_TimeLeft_timeout():
-	timeCount = timeCount + (100 * playerHealth)
+	timeCount = timeCount + (100 * player.health)
+	$TimeCounter.stop()
 	#win Screen or next Scene
 	pass
-
-
+	
 func _on_TimeCounter_timeout():
 	timeCount += 10
 	pass # Replace with function body.

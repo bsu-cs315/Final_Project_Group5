@@ -49,6 +49,6 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="ExitScene" type="Timer" parent="OverlayButton"]
-wait_time = 6.0
+wait_time = 4.0
 
 [connection signal="timeout" from="OverlayButton/ExitScene" to="OverlayButton" method="_on_ExitScene_timeout"]
