@@ -5,6 +5,8 @@ var _speed : int = 150
 var hit : bool = false
 var health : int = 3
 
+onready var vulnerability = get_node("AfterTime")
+
 func _physics_process(_delta):
 	var input := Vector2.ZERO
 	input.x = Input.get_axis("move_left", "move_right")
@@ -32,6 +34,9 @@ func _on_Area2D_area_entered(area):  # new method of doing bullet collision: mak
 		print("The Area2D I just collided with was in the 'Bullets' group!")
 		health = health - 1
 		print("Player HP: " + str(health))
+		set_collision_layer_bit(2,false)
+		set_collision_mask_bit(2,false)
+		vulnerability.start()
 		if(health == 0):
 			get_tree().change_scene("res://Scenes/ReAwakening.tscn")
 	else:
@@ -47,3 +52,9 @@ func rotatePlayer(input : Vector2):
 		rotation_degrees = 0
 	if(input.y > 0 and Input.get_axis("move_down", "move_up")):
 		rotation_degrees = 180
+
+
+#func _on_AfterTime_timeout():
+#	collision_layer = 1
+#	collision_mask = 1
+#	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Grass.png" type="Texture" id=2]
@@ -6,12 +6,21 @@
 [ext_resource path="res://AreaBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Barrier.tscn" type="PackedScene" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
 
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="PauseMenu" parent="." instance=ExtResource( 7 )]
+margin_left = -1333.0
+margin_top = -1289.0
+margin_right = 2038.0
+margin_bottom = 1875.0
+
 [node name="Grass" type="Sprite" parent="."]
-position = Vector2( 384, 203 )
+position = Vector2( 391, 250 )
 scale = Vector2( 16.6033, 9.31866 )
 z_index = -149
 texture = ExtResource( 2 )
@@ -21,7 +30,7 @@ position = Vector2( 440, 273 )
 scale = Vector2( 0.8, 0.8 )
 
 [node name="Enviroment" type="Node2D" parent="."]
-position = Vector2( -5, -41 )
+position = Vector2( -44, -41 )
 
 [node name="Barrier2" parent="Enviroment" instance=ExtResource( 5 )]
 position = Vector2( 493, 219 )
@@ -111,8 +120,6 @@ position = Vector2( -379, 269 )
 
 [node name="AreaBullet13" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -348, 205 )
-
-[node name="HUD" parent="." instance=ExtResource( 6 )]
 
 [node name="TimeLeft" type="Timer" parent="."]
 wait_time = 31.0

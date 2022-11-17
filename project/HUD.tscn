@@ -15,12 +15,3 @@ text = "Time Left:
 Score:
 Health: "
 align = 1
-
-[node name="Button" type="Button" parent="."]
-margin_left = 616.0
-margin_top = 10.0
-margin_right = 666.0
-margin_bottom = 30.0
-text = "Pause"
-
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
