@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://BulletBoxWall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ThrowingStar.tscn" type="PackedScene" id=4]
+
+[node name="Level2" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 308, 277 )
+
+[node name="Background" type="Sprite" parent="."]
+
+[node name="BulletBoxWall" parent="." instance=ExtResource( 3 )]
+position = Vector2( 252, 282 )
+
+[node name="ThrowingStar" parent="." instance=ExtResource( 4 )]
+position = Vector2( 281, 239 )

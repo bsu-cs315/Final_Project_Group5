@@ -1,11 +1,17 @@
 extends KinematicBody2D
 
+onready var sprite = get_node("Sprite")
+onready var activeTexture = sprite.get_texture()
+onready var transparentTexture = load("res://sprites/transparent_pixel.png")
+
 var _velocity : Vector2 = Vector2.ZERO
 var _speed : int = 150
 var hit : bool = false
 var health : int = 3
+var _invulnerabilityTimer = 0
+var _invulnerabilityFlashTimer = 0.2
 
-onready var vulnerability = get_node("AfterTime")
+#onready var vulnerability = get_node("AfterTime")
 
 func _physics_process(_delta):
 	var input := Vector2.ZERO
@@ -17,26 +23,36 @@ func _physics_process(_delta):
 	_velocity = move_and_slide(_velocity, Vector2.UP)
 	
 	rotatePlayer(input)
-		
-	
-	for i in get_slide_count():  # I propose we deprecate this method of bullet collision in favor of the one below using signals.
-		var collision := get_slide_collision(i)
-		if collision.collider.is_in_group("Bullets") and hit == false:
-			hit = true
-			print("1")
-		#if collision.collider.is_in_group("Wall"):  # commented this out for ease of testing
-		#	_speed = 100
 
+
+func _process(delta):
+	
+	if _invulnerabilityTimer > 0:
+		_invulnerabilityTimer = _invulnerabilityTimer - delta
+		_invulnerabilityFlashTimer = _invulnerabilityFlashTimer - delta
+		if _invulnerabilityFlashTimer <= 0:
+			_invulnerabilityFlashTimer = 0.2
+			if sprite.get_texture() == activeTexture:
+				sprite.set_texture(transparentTexture)
+			else:
+				sprite.set_texture(activeTexture)
+	elif not _invulnerabilityTimer == -1: # this is essentially a weird way of saying if timer <= 0 while excluding -1 from that check, see why below
+		_invulnerabilityTimer = -1
+		sprite.set_texture(activeTexture)
+		
 
 func _on_Area2D_area_entered(area):  # new method of doing bullet collision: make bullets area2D and have the player's area2D node send a signal to the player when it collides with the bullets area2D node. In other words, the player is responsible for bullet collision, not the bullet itself.
-	print("Collided with area2D node: '" + str(area) + "'!")
 	if area.is_in_group("Bullets"):
-		print("The Area2D I just collided with was in the 'Bullets' group!")
-		health = health - 1
-		print("Player HP: " + str(health))
-		set_collision_layer_bit(2,false)
-		set_collision_mask_bit(2,false)
-		vulnerability.start()
+		if _invulnerabilityTimer <= 0:
+			health = health - 1
+			print("Player HP: " + str(health))
+			_invulnerabilityTimer = 3
+		else:
+			print("Still invulnerable!")
+		
+		#set_collision_layer_bit(2,false)
+		#set_collision_mask_bit(2,false)
+		#vulnerability.start()
 		if(health == 0):
 			get_tree().change_scene("res://Scenes/ReAwakening.tscn")
 	else:
@@ -57,4 +73,3 @@ func rotatePlayer(input : Vector2):
 #func _on_AfterTime_timeout():
 #	collision_layer = 1
 #	collision_mask = 1
-#	pass # Replace with function body.

@@ -12,8 +12,8 @@ func _on_Start_pressed():
 
 func _on_TimePerLetter_timeout():
 	timer.visible_characters += 1
-	if(timer.visible_characters == 260):
-		get_tree().change_scene("res://Scenes/World.tscn")
+	if(timer.visible_characters == 1):
+		get_tree().change_scene("res://Scenes/Level2.tscn")
 	
 	
 	

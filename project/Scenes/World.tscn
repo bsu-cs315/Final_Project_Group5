@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Grass.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Barrier.tscn" type="PackedScene" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ThrowingStar.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
@@ -20,7 +21,7 @@ margin_right = 2038.0
 margin_bottom = 1875.0
 
 [node name="Grass" type="Sprite" parent="."]
-position = Vector2( 391, 250 )
+position = Vector2( 359, 325 )
 scale = Vector2( 16.6033, 9.31866 )
 z_index = -149
 texture = ExtResource( 2 )
@@ -64,7 +65,7 @@ rotation = 1.5708
 scale = Vector2( 80, 6 )
 
 [node name="Barrier10" parent="Enviroment" instance=ExtResource( 5 )]
-position = Vector2( 290, 462 )
+position = Vector2( 291, 462 )
 scale = Vector2( 102, 6 )
 
 [node name="Barrier11" parent="Enviroment" instance=ExtResource( 5 )]
@@ -120,6 +121,9 @@ position = Vector2( -379, 269 )
 
 [node name="AreaBullet13" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -348, 205 )
+
+[node name="ThrowingStar" parent="Wave1" instance=ExtResource( 8 )]
+position = Vector2( 254, 225 )
 
 [node name="TimeLeft" type="Timer" parent="."]
 wait_time = 31.0
