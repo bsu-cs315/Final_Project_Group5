@@ -7,12 +7,14 @@ onready var playerSound = get_node("AudioStreamPlayer")
 
 var _velocity : Vector2 = Vector2.ZERO
 var _speed : int = 150
-var health : int = 3
+var health : int = 10
 
 const _invulnerabilityPeriod = 3  # The length of time the player will be invulnerable for after taking damage, in seconds.
 const _invulnerabilityFlashPeriod = 0.2
 var _invulnerabilityTimer = 0  # The variable used to actually keep track of invulnerability
 var _invulnerabilityFlashTimer = 0.2
+
+signal playerDamaged(bullet)  # Used to send a signal back to a bullet which has damaged a player to tell it to remove itself
 
 
 func _physics_process(_delta):
@@ -50,6 +52,8 @@ func _on_Area2D_area_entered(area):  # new method of doing bullet collision: mak
 			print("Player HP: " + str(health))
 			_invulnerabilityTimer = _invulnerabilityPeriod
 			_invulnerabilityFlashTimer = _invulnerabilityFlashPeriod
+			connect("playerDamaged", area, "bulletRemovalTrigger")  # connects to the specific bullet that damaged the player
+			emit_signal("playerDamaged")  # sends bullet removal signal to the bullet that did damage
 		else:
 			print("Still invulnerable!")
 		if(health == 0):

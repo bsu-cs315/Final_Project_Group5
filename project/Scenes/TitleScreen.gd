@@ -12,7 +12,7 @@ func _on_Start_pressed():
 
 func _on_TimePerLetter_timeout():
 	timer.visible_characters += 1
-	if(timer.visible_characters == 1):
+	if(timer.visible_characters == 1):  # revert to 260 when not testing
 		get_tree().change_scene("res://Scenes/Level2.tscn")
 	
 	
