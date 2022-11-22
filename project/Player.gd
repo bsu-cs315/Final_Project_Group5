@@ -49,13 +49,10 @@ func _on_Area2D_area_entered(area):  # new method of doing bullet collision: mak
 		if _invulnerabilityTimer <= 0:
 			playerSound.playing = true
 			health = health - 1
-			print("Player HP: " + str(health))
 			_invulnerabilityTimer = _invulnerabilityPeriod  # Initiates the player invulnerability time. Length of invulnerability is handled in _process()
 			_invulnerabilityFlashTimer = _invulnerabilityFlashPeriod
 			connect("playerDamaged", area, "bulletRemovalTrigger")  # connects to the specific bullet that damaged the player
 			emit_signal("playerDamaged")  # sends bullet removal signal to the bullet that did damage
-		else:
-			print("Still invulnerable!")
 		if(health == 0):
 			get_tree().change_scene("res://Scenes/ReAwakening.tscn")
 	else:
@@ -71,4 +68,3 @@ func rotatePlayer(input : Vector2):
 		rotation_degrees = 0
 	if(input.y > 0 and Input.get_axis("move_down", "move_up")):
 		rotation_degrees = 180
-

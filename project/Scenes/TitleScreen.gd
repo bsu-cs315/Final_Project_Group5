@@ -7,7 +7,6 @@ func _on_Start_pressed():
 	$TimePerLetter.start()
 	$Title.visible = false
 	$Start.visible = false
-	pass # Replace with function body.
 
 
 func _on_TimePerLetter_timeout():

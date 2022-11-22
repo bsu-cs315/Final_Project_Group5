@@ -3,9 +3,9 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
 [ext_resource path="res://BulletBoxWall.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ThrowingStar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Waves/WaveArrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/black_pixel.png" type="Texture" id=5]
-[ext_resource path="res://WaveShruiken.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Waves/WaveShruiken.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Level2.gd" type="Script" id=7]
 
 [node name="Level2" type="Node2D"]
@@ -20,9 +20,6 @@ texture = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 330, 276 )
-
-[node name="ThrowingStar" parent="." instance=ExtResource( 4 )]
-position = Vector2( 40, 38 )
 
 [node name="Arena" type="Node2D" parent="."]
 __meta__ = {
@@ -44,3 +41,5 @@ position = Vector2( 348, 378 )
 rotation = 1.5708
 
 [node name="WaveShruiken" parent="." instance=ExtResource( 6 )]
+
+[node name="WaveArrow" parent="." instance=ExtResource( 4 )]

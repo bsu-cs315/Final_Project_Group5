@@ -3,11 +3,11 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Grass.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/World.gd" type="Script" id=3]
-[ext_resource path="res://AreaBullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Bullets/AreaBullet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Barrier.tscn" type="PackedScene" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://ThrowingStar.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Bullets/ThrowingStar.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
