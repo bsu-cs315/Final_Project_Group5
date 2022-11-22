@@ -3,15 +3,17 @@ extends KinematicBody2D
 onready var sprite = get_node("Sprite")
 onready var activeTexture = sprite.get_texture()
 onready var transparentTexture = load("res://sprites/transparent_pixel.png")
+onready var playerSound = get_node("AudioStreamPlayer")
 
 var _velocity : Vector2 = Vector2.ZERO
 var _speed : int = 150
-var hit : bool = false
 var health : int = 3
-var _invulnerabilityTimer = 0
+
+const _invulnerabilityPeriod = 3  # The length of time the player will be invulnerable for after taking damage, in seconds.
+const _invulnerabilityFlashPeriod = 0.2
+var _invulnerabilityTimer = 0  # The variable used to actually keep track of invulnerability
 var _invulnerabilityFlashTimer = 0.2
 
-#onready var vulnerability = get_node("AfterTime")
 
 func _physics_process(_delta):
 	var input := Vector2.ZERO
@@ -26,8 +28,7 @@ func _physics_process(_delta):
 
 
 func _process(delta):
-	
-	if _invulnerabilityTimer > 0:
+	if _invulnerabilityTimer > 0:  # This handles the invulnerability timer and flashing sprite during said timer.
 		_invulnerabilityTimer = _invulnerabilityTimer - delta
 		_invulnerabilityFlashTimer = _invulnerabilityFlashTimer - delta
 		if _invulnerabilityFlashTimer <= 0:
@@ -36,7 +37,7 @@ func _process(delta):
 				sprite.set_texture(transparentTexture)
 			else:
 				sprite.set_texture(activeTexture)
-	elif not _invulnerabilityTimer == -1: # this is essentially a weird way of saying if timer <= 0 while excluding -1 from that check, see why below
+	elif not _invulnerabilityTimer == -1: # this is essentially a weird way of saying if timer <= 0 while excluding -1 from that check. I use -1 as a value which cant be reached in 1 frame. If the timer is <= 0 but NOT negative 1, the player sprite is reset back to its original sprite and the timer is set to -1. This way we dont have to check EVERY FRAME to see what the sprite texture is.
 		_invulnerabilityTimer = -1
 		sprite.set_texture(activeTexture)
 		
@@ -44,15 +45,13 @@ func _process(delta):
 func _on_Area2D_area_entered(area):  # new method of doing bullet collision: make bullets area2D and have the player's area2D node send a signal to the player when it collides with the bullets area2D node. In other words, the player is responsible for bullet collision, not the bullet itself.
 	if area.is_in_group("Bullets"):
 		if _invulnerabilityTimer <= 0:
+			playerSound.playing = true
 			health = health - 1
 			print("Player HP: " + str(health))
-			_invulnerabilityTimer = 3
+			_invulnerabilityTimer = _invulnerabilityPeriod
+			_invulnerabilityFlashTimer = _invulnerabilityFlashPeriod
 		else:
 			print("Still invulnerable!")
-		
-		#set_collision_layer_bit(2,false)
-		#set_collision_mask_bit(2,false)
-		#vulnerability.start()
 		if(health == 0):
 			get_tree().change_scene("res://Scenes/ReAwakening.tscn")
 	else:
@@ -69,7 +68,3 @@ func rotatePlayer(input : Vector2):
 	if(input.y > 0 and Input.get_axis("move_down", "move_up")):
 		rotation_degrees = 180
 
-
-#func _on_AfterTime_timeout():
-#	collision_layer = 1
-#	collision_mask = 1
