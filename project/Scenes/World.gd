@@ -13,6 +13,7 @@ func _process(_delta):
 	position.x = get_viewport_rect().size.x/6
 	if($TimeLeft.time_left >= 0):
 		$HUD/Label.text = "Time Left: " + str(int($TimeLeft.time_left)) + "\nScore: " + str(timeCount) + "\n Health : " + str(player.health)
+
 func _on_TimeLeft_timeout():
 	timeCount = timeCount + (100 * player.health)
 	$TimeCounter.stop()
