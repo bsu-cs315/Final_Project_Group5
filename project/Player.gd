@@ -16,6 +16,8 @@ var _invulnerabilityFlashTimer = 0.2
 
 signal playerDamaged(bullet)  # Used to send a signal back to a bullet which has damaged a player to tell it to remove itself
 
+#func _ready():
+#	print(self)
 
 func _physics_process(_delta):
 	var input := Vector2.ZERO

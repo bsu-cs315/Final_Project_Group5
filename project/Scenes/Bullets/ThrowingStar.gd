@@ -6,7 +6,7 @@ func _ready():
 
 
 func _process(delta):
-	rotation_degrees =  rotation_degrees + (-delta * 360)
+	rotation_degrees = rotation_degrees + (-delta * 360)
 
 
 func bulletRemovalTrigger():
