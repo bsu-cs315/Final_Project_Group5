@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
-[ext_resource path="res://BulletBoxWall.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Arena.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Waves/WaveArrow.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/black_pixel.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Waves/WaveShruiken.tscn" type="PackedScene" id=6]
@@ -21,25 +21,11 @@ texture = ExtResource( 5 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 330, 276 )
 
-[node name="Arena" type="Node2D" parent="."]
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Arena" parent="." instance=ExtResource( 3 )]
+position = Vector2( 243, 283 )
 
-[node name="BulletBoxWall" parent="Arena" instance=ExtResource( 3 )]
-position = Vector2( 252, 282 )
+[node name="WaveShruiken" parent="Arena" instance=ExtResource( 6 )]
+position = Vector2( -243, -283 )
 
-[node name="BulletBoxWall2" parent="Arena" instance=ExtResource( 3 )]
-position = Vector2( 349, 186 )
-rotation = 1.5708
-
-[node name="BulletBoxWall3" parent="Arena" instance=ExtResource( 3 )]
-position = Vector2( 445, 282 )
-
-[node name="BulletBoxWall4" parent="Arena" instance=ExtResource( 3 )]
-position = Vector2( 348, 378 )
-rotation = 1.5708
-
-[node name="WaveShruiken" parent="." instance=ExtResource( 6 )]
-
-[node name="WaveArrow" parent="." instance=ExtResource( 4 )]
+[node name="WaveArrow" parent="Arena" instance=ExtResource( 4 )]
+position = Vector2( -243, -283 )

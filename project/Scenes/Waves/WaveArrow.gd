@@ -8,7 +8,7 @@ var _spawnTimer = 0
 var player
 
 func _ready():
-	var level = get_parent()
+	var level = get_parent().get_parent()
 	player = level.get_node("Player")
 #	print(player)
 #	print(player.position.x)
