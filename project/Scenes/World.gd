@@ -19,6 +19,7 @@ func _process(_delta):
 func _on_TimeLeft_timeout():
 	timeCount = timeCount + (100 * player.health)
 	$TimeCounter.stop()
+	get_tree().change_scene("res://Scenes/Level2.tscn")
 	# win Screen or next Scene
 
 	

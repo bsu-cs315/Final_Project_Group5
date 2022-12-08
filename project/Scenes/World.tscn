@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/Grass.png" type="Texture" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Barrier.tscn" type="PackedScene" id=5]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Bullets/ThrowingStar.tscn" type="PackedScene" id=8]
 
 [node name="World" type="Node2D"]
 script = ExtResource( 3 )
@@ -91,39 +90,58 @@ scale = Vector2( 80, 6 )
 
 [node name="AreaBullet3" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -369, 327 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet4" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -349, 248 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet5" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -417, 239 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet6" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -311, 370 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet7" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -409, 311 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet8" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -311, 229 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet9" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -344, 383 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet10" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -390, 382 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet11" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -318, 313 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet12" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -379, 269 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="AreaBullet13" parent="Wave1" instance=ExtResource( 4 )]
 position = Vector2( -348, 205 )
-
-[node name="ThrowingStar" parent="Wave1" instance=ExtResource( 8 )]
-position = Vector2( 254, 225 )
+collision_layer = 3
+collision_mask = 3
 
 [node name="TimeLeft" type="Timer" parent="."]
 wait_time = 31.0

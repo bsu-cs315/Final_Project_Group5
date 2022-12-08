@@ -41,7 +41,16 @@ percent_visible = 0.0
 [node name="TimePerLetter" type="Timer" parent="."]
 wait_time = 0.1
 
+[node name="Button" type="Button" parent="."]
+visible = false
+margin_left = 518.0
+margin_top = 426.0
+margin_right = 601.0
+margin_bottom = 446.0
+text = "Skip"
+
 [connection signal="ready" from="Title" to="." method="_on_Title_ready"]
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="ready" from="Prologue" to="." method="_on_Prologue_ready"]
 [connection signal="timeout" from="TimePerLetter" to="." method="_on_TimePerLetter_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

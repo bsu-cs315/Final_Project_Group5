@@ -11,6 +11,7 @@ func _ready():
 	self.position.x = rand_range(200, 400)
 	self.position.y = rand_range(200, 400)
 	
+	
 	rotation = get_angle_to(_playerPosition)
 	
 	_launchVector = self.position - _playerPosition
