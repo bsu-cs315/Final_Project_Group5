@@ -24,8 +24,8 @@ position = Vector2( 330, 276 )
 [node name="Arena" parent="." instance=ExtResource( 3 )]
 position = Vector2( 243, 283 )
 
-[node name="WaveShruiken" parent="Arena" instance=ExtResource( 6 )]
+[node name="WaveArrow" parent="Arena" instance=ExtResource( 4 )]
 position = Vector2( -243, -283 )
 
-[node name="WaveArrow" parent="Arena" instance=ExtResource( 4 )]
+[node name="WaveShruiken" parent="Arena" instance=ExtResource( 6 )]
 position = Vector2( -243, -283 )
